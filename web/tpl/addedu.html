@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>信息登记</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/addedu.css" />
+		<script type="text/javascript" src="../static/js/jquery.js"></script>
+		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../static/js/app.js"></script>
+		<script type="text/javascript" src="../static/js/addedu.js"></script>
+	</head>
+	<body>
+	<div class="bg"></div>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">学历征信系统</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsebar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsebar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="query.html">信息查询</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="addedu.html">信息添加</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="myedu.html">我的信息</a>
+				</li>
+				{{if .Islogin}}
+					<li class="nav-item" id="login">
+						<a class="nav-link">{{.Username}}欢迎你!</a>
+					</li>
+					<li class="nav-item" id="register">
+						<a class="nav-link" href="./loginout.html">退出</a>
+					</li>
+				{{else}}
+					<li class="nav-item" id="login">
+						<a class="nav-link" href="./login.html">登录</a>
+					</li>
+					<li class="nav-item" id="register">
+						<a class="nav-link" href="./register.html">注册</a>
+					</li>
+				{{end}}
+			</ul>
+		</div>
+	</nav>
+		<div class="container-fluid context">
+			<div class="card">
+				<div class="card-body">
+					<form action="/addedudo.html" method="post">
+						<div class="form-group">
+							<label for="name">姓名:</label>
+							<input type="text" class="form-control" id="name" name="Name" placeholder="姓名">
+						</div>
+						<div class="form-group">
+							<label for="Gender">性别:</label>
+							<select class="form-control" id="Gender" name="Gender">
+								<option>男</option>
+								<option>女</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Nation">民族:</label>
+							<input type="text" class="form-control" id="name" name="Nation" placeholder="民族">
+						</div>
+						<div class="form-group">
+							<label for="EntityID">身份证号:</label>
+							<input type="text" class="form-control" id="EntityID" name="EntityID" placeholder="身份证号">
+						</div>
+						<div class="form-group">
+							<label for="Place">籍贯:</label>
+							<input type="text" class="form-control" id="Place" name="Place" placeholder="籍贯">
+						</div>
+						<div class="form-group">
+							<label for="BirthDay">出生日期:</label>
+							<input type="text" class="form-control" id="BirthDay" name="BirthDay" placeholder="出生日期">
+						</div>
+						<div class="form-group">
+							<label for="EnrollDate">入学日期:</label>
+							<input type="text" class="form-control" id="EnrollDate" name="EnrollDate" placeholder="入学日期">
+						</div>
+						<div class="form-group">
+							<label for="GraduationDate">毕（结）业日期:</label>
+							<input type="text" class="form-control" id="GraduationDate" name="GraduationDate" placeholder="毕（结）业日期">
+						</div>
+						<div class="form-group">
+							<label for="SchoolName">学校名称:</label>
+							<input type="text" class="form-control" id="SchoolName" name="SchoolName" placeholder="学校名称">
+						</div>
+						<div class="form-group">
+							<label for="Major">专业:</label>
+							<input type="text" class="form-control" id="Major" name="Major" placeholder="专业">
+						</div>
+						<div class="form-group">
+							<label for="QuaType">学历类别:</label>
+							<select class="form-control" id="QuaType" name="QuaType">
+								<option>普通</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Length">学制:</label>
+							<select class="form-control" id="Length" name="Length">
+								<option>三年</option>
+								<option>四年</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Mode">学习形式:</label>
+							<select class="form-control" id="Mode" name="Mode">
+								<option>普通全日制</option>
+								<option>专升本</option>
+								<option>业余班</option>
+								<option>双学历 双学位</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Level">层次:</label>
+							<select class="form-control" id="Level" name="Level">
+								<option>本科</option>
+								<option>专科</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Graduation">毕（结）业:</label>
+							<select class="form-control" id="Graduation" name="Graduation">
+								<option>毕业</option>
+								<option>结业</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="CertNo">证书编号:</label>
+							<input type="text" class="form-control" id="CertNo" name="CertNo" placeholder="证书编号">
+						</div>
+						<hr />
+						<div class="headImg">
+							<div class="uploadImg">
+								<input type="file" class="custom-file-input" name="" value="上传照片" id="file">
+								+
+								<!-- <img src="./images/head.jpg" alt=""> -->
+								<img src="" alt="">
+							</div>
+							<p>请上传照片(120*160px)</p>
+						</div>
+				<input type="hidden" name="Photo" id="photo" value="" />
+				<hr />
+				<button type="submit" class="btn btn-primary">提交</button>
+				</form>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

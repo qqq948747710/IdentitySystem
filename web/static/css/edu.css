@@ -1,0 +1,40 @@
+@media(min-width:768px) {
+	.context {
+		padding-right: 10%;
+		padding-left: 10%;
+	}
+}
+h2{
+	text-align: center;
+}
+.eduinfo{
+	display: flex;
+	flex-direction: row;
+}
+.left{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+.right{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+.photo{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+.item{
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+}
+.title{
+	font-size: 14px;
+	text-align: right;
+}
+.text{
+	text-align: left;
+}

@@ -1,0 +1,38 @@
+
+/*当屏幕大时才压缩内容页面的内容,和设置登录注册按钮向右*/
+@media(min-width:768px) {
+	#login {
+		position: absolute;
+		right: 13%;
+	}
+	#register {
+		position: absolute;
+		right: 10%;
+	}
+	.context {
+		padding-right: 30%;
+		padding-left: 30%;
+	}
+}
+html{
+	height: 100%;
+}
+body {
+	height: 100%;
+	position: relative;
+}
+/*防止头部被固定的导航栏遮住内容*/
+.container-fluid{
+	padding-top: 10%;
+	opacity: 0.8;
+}
+/*背景图片div设置*/
+.bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:center/cover no-repeat fixed;
+	opacity: 0.6;
+}

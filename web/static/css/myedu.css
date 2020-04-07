@@ -1,0 +1,16 @@
+@media(min-width:768px) {
+	.context {
+		padding-right: 20%;
+		padding-left: 20%;
+	}
+}
+.context{
+	opacity: 0.95;
+}
+html{
+	height: auto;
+}
+body {
+	height: auto;
+	position: relative;
+}

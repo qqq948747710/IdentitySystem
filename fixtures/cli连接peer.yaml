@@ -1,0 +1,41 @@
+#peer0.orgmai.test.com
+export CORE_PEER_ADDRESS=peer0.orgmai.test.com:7051
+export CORE_PEER_LOCALMSPID=OrgMaiMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer0.orgmai.test.com/tls/server.crt
+export CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer0.orgmai.test.com/tls/server.key
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer0.orgmai.test.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/users/Admin@orgmai.test.com/msp
+
+
+
+#peer1.orgmai.test.com
+export CORE_PEER_ADDRESS=peer1.orgmai.test.com:7051
+export CORE_PEER_LOCALMSPID=OrgMaiMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer1.orgmai.test.com/tls/server.crt
+export CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer1.orgmai.test.com/tls/server.key
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/peers/peer1.orgmai.test.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgmai.test.com/users/Admin@orgmai.test.com/msp
+
+
+
+#peer0.orgshang.test.com
+export CORE_PEER_ADDRESS=peer0.orgshang.test.com:7051
+export CORE_PEER_LOCALMSPID=OrgShangMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer0.orgshang.test.com/tls/server.crt
+export CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer0.orgshang.test.com/tls/server.key
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer0.orgshang.test.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/users/Admin@orgshang.test.com/msp
+
+
+
+#peer1.orgshang.test.com
+export CORE_PEER_ADDRESS=peer1.orgshang.test.com:7051
+export CORE_PEER_LOCALMSPID=OrgShangMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer1.orgshang.test.com/tls/server.crt
+export CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer1.orgshang.test.com/tls/server.key
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/peers/peer1.orgshang.test.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgshang.test.com/users/Admin@orgshang.test.com/msp

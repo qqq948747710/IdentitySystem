@@ -1,0 +1,158 @@
+name: "fixtures_default"
+version: 1.0.0
+client:
+#这个必须是在organization内定义的组织，在sdk中string也是这个
+  organization: orgidentity
+  logging:
+    level: info
+  cryptoconfig:
+    path: ./fixtures/crypto-config
+  credentialStore:
+    path: /tmp/identity-store
+    cryptoStore:
+      path: /tmp/identity-msp
+  BCCSP:
+    security:
+     enabled: true
+     default:
+      provider: "SW"
+     hashAlgorithm: "SHA2"
+     softVerify: true
+     level: 256
+  tlsCerts:
+    systemCertPool: false
+
+    client:
+      key:
+        path:
+      cert:
+        path:
+
+channels:
+  identitychannel:
+    peers:
+      peer0.orgidentity.identity.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.orgidentity.identity.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+    policies:
+      queryChannelConfig:
+        minResponses: 1
+        maxTargets: 1
+        retryOpts:
+          attempts: 5
+          initialBackoff: 500ms
+          maxBackoff: 5s
+          backoffFactor: 2.0
+      discovery:
+        maxTargets: 2
+        retryOpts:
+          attempts: 4
+          initialBackoff: 500ms
+          maxBackoff: 5s
+          backoffFactor: 2.0
+      eventService:
+        resolverStrategy: PreferOrg
+        balancer: Random
+        blockHeightLagThreshold: 5
+        reconnectBlockHeightLagThreshold: 10
+        peerMonitorPeriod: 5s
+
+
+organizations:
+  orgidentity:
+    mspid: OrgIdentityMSP
+    cryptoPath: peerOrganizations/orgidentity.identity.com/users/{userName}@orgidentity.identity.com/msp
+    peers:
+      - peer0.orgidentity.identity.com
+      - peer1.orgidentity.identity.com
+    certificateAuthorities:
+      - ca.orgidentity.identity.com
+  ordererorg:
+    mspID: "OrdererMSP"
+    cryptoPath: ordererOrganizations/identity.com/users/{username}@identity.com/msp
+orderers:
+  orderer.identity.com:
+    url: localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.identity.com
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      allow-insecure: false
+    tlsCACerts:
+      path: ./fixtures/crypto-config/ordererOrganizations/identity.com/tlsca/tlsca.identity.com-cert.pem
+
+peers:
+ peer0.orgidentity.identity.com:
+    url: localhost:7051
+    eventUrl: localhost:7053
+    grpcOptions:
+      ssl-target-name-override: peer0.orgidentity.identity.com
+      keep-alive-time: 0s
+      keep-alive-timeout: 50s
+      keep-alive-permit: false
+      fail-fast: false
+      allow-insecure: false
+    tlsCACerts:
+      path: ./fixtures/crypto-config/peerOrganizations/orgidentity.identity.com/tlsca/tlsca.orgidentity.identity.com-cert.pem
+ peer1.orgidentity.identity.com:
+    url: localhost:7151
+    eventUrl: localhost:7153
+    grpcOptions:
+      ssl-target-name-override: peer1.orgidentity.identity.com
+      keep-alive-time: 0s
+      keep-alive-timeout: 50s
+      keep-alive-permit: false
+      fail-fast: false
+      allow-insecure: false
+    tlsCACerts:
+      path: ./fixtures/crypto-config/peerOrganizations/orgidentity.identity.com/tlsca/tlsca.orgidentity.identity.com-cert.pem
+
+
+certificateAuthorities:
+  ca.orgidentity.identity.com:
+    url: http://localhost:7054
+    tlsCACerts:
+      path: ./fixtures/crypto-config/peerOrganizations/orgidentity.identity.com/ca/ca.orgidentity.identity.com-cert.pem
+    registrar:
+      enrollId: admin
+      enrollSecret: adminpw
+    caName: ca.orgidentity.identity.com
+
+
+
+
+entityMatchers:
+  peer:
+    - pattern: (\w*)peer0.orgidentity.identity.com(\w*)
+      urlSubstitutionExp: localhost:7051
+      eventUrlSubstitutionExp: localhost:7053
+      sslTargetOverrideUrlSubstitutionExp: peer0.orgidentity.identity.com
+      mappedHost: peer0.orgidentity.identity.com
+
+    - pattern: (\w*)peer1.orgidentity.identity.com(\w*)
+      urlSubstitutionExp: localhost:7151
+      eventUrlSubstitutionExp: localhost:7153
+      sslTargetOverrideUrlSubstitutionExp: peer1.orgidentity.identity.com
+      mappedHost: peer1.orgidentity.identity.com
+
+
+  orderer:
+    - pattern: (\w*)orderer.identity.com(\w*)
+      urlSubstitutionExp: localhost:7050
+      sslTargetOverrideUrlSubstitutionExp: orderer.identity.com
+      mappedHost: orderer.identity.com
+
+  certificateAuthorities:
+    - pattern: (\w*)ca.orgidentity.identity.com(\w*)
+      urlSubstitutionExp: http://localhost:7054
+      mappedHost: ca.orgidentity.identity.com

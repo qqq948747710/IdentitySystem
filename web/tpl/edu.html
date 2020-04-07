@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
+	    <link rel="stylesheet" type="text/css" href="../static/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/edu.css" />
+		<script type="text/javascript" src="../static/js/jquery.js"></script>
+		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../static/js/app.js"></script>
+	</head>
+	<body>
+	<div class="bg"></div>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">学历征信系统</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsebar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsebar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="query.html">信息查询</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="addedu.html">信息添加</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="myedu.html">我的信息</a>
+				</li>
+				{{if .Islogin}}
+					<li class="nav-item" id="login">
+						<a class="nav-link">{{.Username}}欢迎你!</a>
+					</li>
+					<li class="nav-item" id="register">
+						<a class="nav-link" href="./loginout.html">退出</a>
+					</li>
+				{{else}}
+					<li class="nav-item" id="login">
+						<a class="nav-link" href="./login.html">登录</a>
+					</li>
+					<li class="nav-item" id="register">
+						<a class="nav-link" href="./register.html">注册</a>
+					</li>
+				{{end}}
+			</ul>
+		</div>
+	</nav>
+		<div class="container-fluid context">
+			<div class="card">
+				<div class="card-body">
+					<h2>中国高等教育学历查询结果</h2>
+					<hr >
+					<div class="eduinfo">
+						<div class="left">
+							<div class="item">
+								<div class="title">
+									姓名:
+								</div>
+								<div class="text">
+									{{.Edu.Name}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									性别:
+								</div>
+								<div class="text">
+									{{.Edu.Gender}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									民族:
+								</div>
+								<div class="text">
+									{{.Edu.Nation}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									身份证号:
+								</div>
+								<div class="text">
+									{{.Edu.EntityID}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									籍贯:
+								</div>
+								<div class="text">
+									{{.Edu.BirthDay}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									入学日期:
+								</div>
+								<div class="text">
+									{{.Edu.EnrollDate}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									毕（结）业日期:
+								</div>
+								<div class="text">
+									{{.Edu.GraduationDate}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									学校名称:
+								</div>
+								<div class="text">
+									{{.Edu.SchoolName}}
+								</div>
+							</div>
+						</div>
+						<div class="right">
+							<div class="item">
+								<div class="title">
+									专业:
+								</div>
+								<div class="text">
+									{{.Edu.Major}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									学历类别:
+								</div>
+								<div class="text">
+									{{.Edu.QuaType}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									学制:
+								</div>
+								<div class="text">
+									{{.Edu.Length}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									学习形式:
+								</div>
+								<div class="text">
+									{{.Edu.Mode}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									层次:
+								</div>
+								<div class="text">
+									{{.Edu.Level}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									毕（结）业:
+								</div>
+								<div class="text">
+									{{.Edu.Graduation}}
+								</div>
+							</div>
+							<div class="item">
+								<div class="title">
+									证书编号:
+								</div>
+								<div class="text">
+									{{.Edu.CertNo}}
+								</div>
+							</div>
+						</div>
+						<div class="photo">
+							<img src="{{.Edu.Photo}}" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
