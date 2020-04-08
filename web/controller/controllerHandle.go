@@ -294,6 +294,15 @@ func randToken(len int)string{
 	return fmt.Sprintf("%x",b)
 }
 
+func(app *Application)LoginOut(w http.ResponseWriter,r *http.Request){
+	islogin,_:= app.Verifier.Verify(VERLOGINED, w, r)
+	if !islogin {
+		message(w, r, "你还没有登录!")
+		return
+	}
+	GlobalSessions.SessionDestroy(w,r)
+	message(w,r,"退出成功!")
+}
 func init(){
 	GlobalSessions ,_= session.NewManager("memory","gosessionid",3600)
 	GlobalSessions.GC()

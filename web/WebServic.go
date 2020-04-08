@@ -16,6 +16,7 @@ func WebStart(app *controller.Application){
 	http.HandleFunc("/register.html",app.RegisterView)
 	http.HandleFunc("/registerdo.html",app.RegisterDo)
 	http.HandleFunc("/logindo.html",app.LoginDo)
+	http.HandleFunc("/loginout.html",app.LoginOut)
 	http.HandleFunc("/myedu.html",app.MyEdu)
 	http.HandleFunc("/addedu.html",app.AddEduView)
 	http.HandleFunc("/addedudo.html",app.AddEduDo)
